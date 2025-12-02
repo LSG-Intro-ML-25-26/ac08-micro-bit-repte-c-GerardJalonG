@@ -1,17 +1,16 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    if (receivedNumber > NumLocal) {
+    if (numLocal < receivedNumber) {
         basic.showIcon(IconNames.Sad)
-    } else if (receivedNumber == NumLocal) {
+    } else if (numLocal == receivedNumber) {
         basic.showIcon(IconNames.Asleep)
     } else {
         basic.showIcon(IconNames.Happy)
     }
 })
 input.onButtonPressed(Button.A, function () {
-    NumLocal = randint(1, 6)
-    basic.showNumber(NumLocal)
-    radio.sendNumber(NumLocal)
+    numLocal = randint(1, 6)
+    basic.showNumber(numLocal)
+    radio.sendNumber(numLocal)
 })
-let NumLocal = 0
+let numLocal = 0
 radio.setGroup(1)
-NumLocal = 0
